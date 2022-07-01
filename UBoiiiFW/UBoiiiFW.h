@@ -4,16 +4,18 @@
 
 namespace UBoiii
 {
-	template<typename T>
-	void print(T arg)
+	template<typename... Arg>
+	void print(Arg... args)
 	{
-		std::cout << arg;
+		([&]()
+			{
+				std::cout << args;
+			}(), ...);
 	}
 
-	template<typename T, typename... S>
-	void print(T dif,S... args)
+	template<typename T>
+	void input(T& in)
 	{
-		std::cout << dif;
-		std::cout << args...;
+		std::cin >> in;
 	}
 }
